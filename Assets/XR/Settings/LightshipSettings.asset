@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc3dbfe57c4ad49b19309f187d9e1a, type: 3}
+  m_Name: LightshipSettings
+  m_EditorClassIdentifier: 
+  _apiKey: m8U5S8fr1YL3zDbewsPevZDQ89oV2wKVI9dSH7P461KAn2lahq3gWI8CECLFzP0hmjHMS3
+  _useLightshipDepth: 1
+  _useLightshipMeshing: 1
+  _preferLidarIfAvailable: 1
+  _lightshipDepthFrameRate: 20
+  _useLightshipPersistentAnchor: 1
+  _useLightshipSemanticSegmentation: 1
+  _LightshipSemanticSegmentationFrameRate: 10
+  _useLightshipScanning: 1
+  _editorPlaybackSettings:
+    _usePlayback: 0
+    _playbackDatasetPath: C:/Users/acer/Downloads/gandhi_statue.tgz
+    _runPlaybackManually: 0
+    _loopInfinitely: 0
+    _numberOfIterations: 1
+  _devicePlaybackSettings:
+    _usePlayback: 0
+    _playbackDatasetPath: 
+    _runPlaybackManually: 0
+    _loopInfinitely: 0
+    _numberOfIterations: 1
