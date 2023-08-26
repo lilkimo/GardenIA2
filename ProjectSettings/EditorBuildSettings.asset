@@ -8,6 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ArScene.unity
     guid: 9119ad5919c550446aaaf7c91b57fdeb
+  - enabled: 1
+    path: Assets/Scenes/JardinInteractivo.unity
+    guid: dc3e981c2c70b1c42854bd919df1df0f
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 6373878e03e46b94fb58a4e7f87cd1b3
   m_configObjects:
     Niantic.Lightship.AR.LightshipSettings: {fileID: 11400000, guid: 8fa1c6dfff126964ba2f83fc12adcaed, type: 2}
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: b41449d5a0b6f0f43973679efe43fb76, type: 2}

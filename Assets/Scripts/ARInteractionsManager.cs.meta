@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 5ef39c31ad6821849a21ab067e3a6046
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - aRCamera: {instanceID: 0}
+  - planta: {fileID: 11400000, guid: f861f3702456c2a478a7409127d7bd67, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

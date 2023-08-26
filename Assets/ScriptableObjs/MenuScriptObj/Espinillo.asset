@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e6887f41cfe7ec43b592473c4835f61, type: 3}
+  m_Name: Espinillo
+  m_EditorClassIdentifier: 
+  Name: Espinillo
+  Image: {fileID: 0}
+  Description: 
+  Placement: Crece hasta 5[m] y unos 1.5[m] de ancho. Requiere constante sol.
+  Model: {fileID: 0}
+  Price: 5000
+  Consumption: 10
+  Density: Alta
+  Maintenance: No
+  Resilience: 
+  Origin: "Regi\xF3n Metropolitana"
+  Temperature: Templada
+  Soil: Vertisol
+  Conflicts:
+  - Ficus Benjamina
+  - Toronjil

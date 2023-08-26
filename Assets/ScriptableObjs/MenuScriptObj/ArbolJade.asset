@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e6887f41cfe7ec43b592473c4835f61, type: 3}
+  m_Name: ArbolJade
+  m_EditorClassIdentifier: 
+  Name: Arbol de Jade
+  Image: {fileID: 0}
+  Description: 
+  Placement: Llega hasta los 2 metros de alto. Necesita sol directo y tierra con
+    buen drenaje.
+  Model: {fileID: 0}
+  Price: 3000
+  Consumption: 200
+  Density: Media
+  Maintenance: No
+  Resilience: 
+  Origin: "\xD1uble"
+  Temperature: Humeda
+  Soil: Blando
+  Conflicts: []
