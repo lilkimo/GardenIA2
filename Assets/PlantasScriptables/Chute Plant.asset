@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78c25ce079e39f54ab092be3222d7deb, type: 3}
+  m_Name: Chute Plant
+  m_EditorClassIdentifier: 
+  ItemSol: 0
+  ItemTamano: 0
+  ItemName: Chute Plant
+  ItemImage: {fileID: 21300000, guid: a223de2f9461f8f4b8450fed9a0454f8, type: 3}
+  ItemDescription: Plantita
+  GrowthStages:
+  - {fileID: 1361617451313638, guid: ef90a9f19bf8c2548b2c3ee012427c17, type: 3}
+  - {fileID: 1590551766792044, guid: 78e6965d6e188cb498251d824f675c6b, type: 3}
+  - {fileID: 1112162343450436, guid: edc67c3f81dcc6c4c8841676c8a0edcb, type: 3}
+  ItemPrecio: 5000
+  ItemConsumoH2O: 60
+  ItemMantencion: 1
+  ItemDensidad: 0
+  ItemResistencia: 1
+  ItemOrigen: []
+  EsCentro: 1
+  EsSur: 1
+  EsNorte: 0
+  ItemTemp: 0
+  ItemSuelo: 0
+  ItemConflictos: []
+  arObjectIdentifier: 1

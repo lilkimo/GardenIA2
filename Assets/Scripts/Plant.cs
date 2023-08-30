@@ -23,6 +23,7 @@ public class Plant : ScriptableObject
     public Levels ItemTemp; // 1 = baja, 2 = media, 3 = alta
     public Suelos ItemSuelo;
     public string[] ItemConflictos; // ingresar nombre de plantas
+    public string arObjectIdentifier; // unique identifier
 
     public enum Levels
     {
