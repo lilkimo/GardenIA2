@@ -27,9 +27,7 @@ public class DataManager : MonoBehaviour
     void Start()
     {
         if(menuManager == null)
-        {
             Debug.Log("DataManager no puede acceder a MenuManager.");
-        }
         menuManager.OnPlantas += CreateButtons;
     }
 
@@ -41,10 +39,12 @@ public class DataManager : MonoBehaviour
         placeController.SetPlant(plants[0]);
         List<Plant> localPlants = new List<Plant>();
         List<Plant> otherPlants = new List<Plant>();
-        foreach (Plant p in plants)
+        foreach (Plant plant in plants)
         {
-            if (p.ItemOrigen.Contains(locationManager.LocationData[0])) localPlants.Add(p);
-            else otherPlants.Add(p);
+            if (plant.ItemOrigen.Contains(locationManager.UserRegion))
+                localPlants.Add(plant);
+            else
+                otherPlants.Add(plant);
         }
         localPlants.AddRange(otherPlants);
 
