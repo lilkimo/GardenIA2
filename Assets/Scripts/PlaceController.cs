@@ -22,6 +22,7 @@ public class PlaceController : MonoBehaviour
     
     private Plant plant;
     public GameObject prefab;
+    public GameObject warning;
 
     private CameraController cameraController;
 
@@ -138,7 +139,7 @@ public class PlaceController : MonoBehaviour
                 {
                     if(plant.ItemConflictos.Contains(child.GetComponent<PlantDisplay>().plant.ItemName)) // and distancia is < algo
                     {
-                        // CAMBIAR COLOR
+                        Instantiate(warning, plantPose.Value.position, plantPose.Value.rotation, parent: obj.transform);
                     }
                 }
             }
