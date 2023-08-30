@@ -67,6 +67,7 @@ public class SOGenJardinManager : MonoBehaviour
             Debug.Log(String.Format("Se creará la siguiente planta:\nNombre: {0}\nCantidad: {1}\nUbicación: {2}\nPrecio: {3}\nConsumo: {4}[ml/s]",plant.Key, plant.Value.cantidad, plant.Value.data.ItemDescription, plant.Value.data.ItemPrecio, plant.Value.data.ItemConsumoH2O));
             PlantaJardinConstructor constructor;
             constructor = Instantiate(plantaJardinConstructor, VistaPlantasJardin.transform);
+            constructor.Imagen = plant.Value.data.ItemImage;
             constructor.Nombre = plant.Key;
             constructor.Cantidad = plant.Value.cantidad.ToString();
             constructor.Ubicacion = plant.Value.data.ItemDescription;
@@ -131,7 +132,7 @@ public class SOGenJardinManager : MonoBehaviour
         List<int> weightedPlants = Enumerable.Range(0, allPlants.Count).ToList();
         int i = 0;
         while(i < allPlants.Count){
-            if(allPlants[i].ItemOrigen == locationManager.LocationData[0]) weightedPlants.Add(i);
+            if(allPlants[i].ItemOrigen.Contains(locationManager.LocationData[0])) weightedPlants.Add(i);
             i++;
         }
 
@@ -181,19 +182,20 @@ public class SOGenJardinManager : MonoBehaviour
         }
         return plantasJardin;
     }
-    // Corrobora que sea correcta la densidad.
-    bool IsDensityApropiate(string plantaValue, string condition){
-        if (condition == "Baja" && (plantaValue == "Media" || plantaValue == "Alta")) return false;
-        else if (condition == "Media" && plantaValue == "Alta") return false;
-        else return true;
-    }
-    // Corrobora que la planta sea apta para el flujo
-    bool IsFlowApropiate(string plantaValue, string condition){
-        if (condition == "Alta" && (plantaValue == "Media" || plantaValue == "Baja")) return false;
-        else if (condition == "Media" && plantaValue == "Baja") return false;
-        else return true;
-    }
-    // List<string> CheckConflict(conlfictos, seeccionadas):
+    // // Corrobora que sea correcta la densidad.
+    // bool IsDensityApropiate(string plantaValue, string condition){
+    //     if (condition == "Baja" && (plantaValue == "Media" || plantaValue == "Alta")) return false;
+    //     else if (condition == "Media" && plantaValue == "Alta") return false;
+    //     else return true;
+    // }
+    // // Corrobora que la planta sea apta para el flujo
+    // bool IsFlowApropiate(string plantaValue, string condition){
+    //     if (condition == "Alta" && (plantaValue == "Media" || plantaValue == "Baja")) return false;
+    //     else if (condition == "Media" && plantaValue == "Baja") return false;
+    //     else return true;
+    // }
+
+    // List<string> CheckConflict(conlfictos, seleccionadas):
     // Busca si plantas con las que la panta seleccionada 
     // tiene conflictos también fueron seleccionadas y las 
     // retorna.
@@ -218,7 +220,7 @@ public class SOGenJardinManager : MonoBehaviour
             cons = Instantiate(plantaVetableConstructor, whitelist.transform);
             cons.NombrePlanta = planta.ItemName;
             cons.DescripcionPlanta = planta.ItemDescription;
-            // cons.ImagenPlanta = planta.Value[n];
+            cons.ImagenPlanta = planta.ItemImage;
         }
     }
     public void ListWLPlants(){
@@ -228,7 +230,7 @@ public class SOGenJardinManager : MonoBehaviour
             cons = Instantiate(plantaVetableConstructor, whitelist.transform);
             cons.NombrePlanta = planta.ItemName;
             cons.DescripcionPlanta = planta.ItemDescription;
-            // cons.ImagenPlanta = planta.Value[n];
+            cons.ImagenPlanta = planta.ItemImage;
         }
     }
     public void DeleteWLPlants(){

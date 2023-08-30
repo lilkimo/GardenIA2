@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1247,7 +1247,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -6456107, y: 4859428.5}
+  m_AnchoredPosition: {x: -6662411.5, y: 4859428.5}
   m_SizeDelta: {x: 0, y: 440}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &803090642
@@ -1687,7 +1687,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37b477682dd70fd409129474769a0415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plants: []
+  plants:
+  - {fileID: 11400000, guid: 672c95148a7665e448d1f9f410ea9ff8, type: 2}
   buttonContainer: {fileID: 803090640}
   itemButtonManager: {fileID: 7312142440667565442, guid: 86235496a1b6cb049a8653d64cac8520, type: 3}
   menuManager: {fileID: 483415433}

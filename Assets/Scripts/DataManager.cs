@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 using Unity.VisualScripting;
+using System.Linq;
 
 public class DataManager : MonoBehaviour
 {
@@ -37,12 +38,12 @@ public class DataManager : MonoBehaviour
         // Habría que hacer que automáticamente se seleccione la primera planta de la lista.
         // (Es más fácil que programar qué pasaría si quieres poner una planta pero no has
         // ninguna seleccionada)
-        placeController.SetPlant(plants[0].GrowthStages[0]);
+        placeController.SetPlant(plants[0]);
         List<Plant> localPlants = new List<Plant>();
         List<Plant> otherPlants = new List<Plant>();
         foreach (Plant p in plants)
         {
-            if (p.ItemOrigen == locationManager.LocationData[0]) localPlants.Add(p);
+            if (p.ItemOrigen.Contains(locationManager.LocationData[0])) localPlants.Add(p);
             else otherPlants.Add(p);
         }
         localPlants.AddRange(otherPlants);
@@ -53,7 +54,7 @@ public class DataManager : MonoBehaviour
             itemButton.Init(item.ItemName, item.ItemConsumoH2O.ToString(), item.ItemImage);
             itemButton.GetComponentInChildren<Toggle>().group = buttonContainer.GetComponent<ToggleGroup>();
             itemButton.button.onClick.AddListener( () => {
-                placeController.SetPlant(item.GrowthStages[0]);
+                placeController.SetPlant(item);
             });
             if(item.ItemTemp != locationManager.Temperatura || item.ItemSuelo != locationManager.Suelo){
                 itemButton.transform.GetChild(4).GetComponent<Image>().enabled = true;

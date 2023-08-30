@@ -17,7 +17,7 @@ public class PlantaVetableConstructor : MonoBehaviour
     void Start()
     {
         transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = nombrePlanta;
-        // transform.GetChild(1).GetComponent<Image>().sprite =  imagenPlanta;
+        transform.GetChild(1).GetComponent<Image>().sprite =  imagenPlanta;
         transform.GetChild(2).GetComponent<TextMeshProUGUI>().text =  descripcionPlanta;
     }
 }

@@ -14,6 +14,7 @@ public class BlackListManager : MonoBehaviour
         {
             if (child.GetComponent<Toggle>().isOn) {
                 string nombre = child.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
+                Sprite imagen = child.transform.GetChild(1).GetComponent<Image>().sprite;
                 string descripcion = child.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text;
 
                 Debug.Log("Planta baneada: "+nombre);
@@ -23,6 +24,7 @@ public class BlackListManager : MonoBehaviour
 
                 PlantaVetableConstructor cons;
                 cons = Instantiate(constructor, blackList.transform);
+                cons.ImagenPlanta = imagen;
                 cons.NombrePlanta = nombre;
                 cons.DescripcionPlanta = descripcion;
             }

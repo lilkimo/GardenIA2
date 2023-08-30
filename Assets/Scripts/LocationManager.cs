@@ -14,7 +14,6 @@ public class LocationManager : MonoBehaviour
     public string UserRegion {get => userRegion;}
     private Plant.Levels temperatura;
     public Plant.Levels Temperatura{get => temperatura;}
-
     private Plant.Suelos suelo;
     public Plant.Suelos Suelo{get => suelo;}
 
@@ -59,10 +58,10 @@ public class LocationManager : MonoBehaviour
         if (!Input.location.isEnabledByUser) {
             // TODO Failure
             Debug.LogFormat("Android and Location not enabled");
-            locationData = new List<string>(){"Region Metropolitana", "Templada", "Vertisol", "Templada"};
-            Debug.Log(String.Format("Los datos por defecto serán: {0}, {1}, {2}.", locationData[0], locationData[1], locationData[2]));
+            userRegion = "Region Metropolitana";
             temperatura = Plant.Levels.Level1;
             suelo = Plant.Suelos.Acido;
+            Debug.Log(String.Format("Los datos por defecto serán: {0}, {1}, {2}.", UserRegion, Temperatura, Suelo));
             yield break;
         }
 
@@ -81,10 +80,10 @@ public class LocationManager : MonoBehaviour
         if (maxWait < 1)
         {
             print("Timed out");
-            locationData = new List<string>(){"Region Metropolitana", "Templada", "Vertisol"};
-            Debug.Log(String.Format("Los datos por defecto serán: {0}, {1}, {2}.", locationData[0], locationData[1], locationData[2]));
+            userRegion = "Region Metropolitana";
             temperatura = Plant.Levels.Level1;
             suelo = Plant.Suelos.Acido;
+            Debug.Log(String.Format("Los datos por defecto serán: {0}, {1}, {2}.", UserRegion, Temperatura, Suelo));
             yield break;
         }
 
@@ -92,10 +91,10 @@ public class LocationManager : MonoBehaviour
         if (Input.location.status == LocationServiceStatus.Failed)
         {
             print("Unable to determine device location");
-            locationData = new List<string>(){"Region Metropolitana", "Templada", "Vertisol"};
-            Debug.Log(String.Format("Los datos por defecto serán: {0}, {1}, {2}.", locationData[0], locationData[1], locationData[2]));
+            userRegion = "Region Metropolitana";
             temperatura = Plant.Levels.Level1;
             suelo = Plant.Suelos.Acido;
+            Debug.Log(String.Format("Los datos por defecto serán: {0}, {1}, {2}.", UserRegion, Temperatura, Suelo));
             yield break;
         }
         else
@@ -134,6 +133,7 @@ public class LocationManager : MonoBehaviour
         // Pero mientras tanto...
         if(ubicacion == "Región Metropolitana"){
             List<string> locationData = new List<string>(){"Region Metropolitana", "Templada", "Vertisol"};
+            userRegion = "Region Metropolitana";
             temperatura = Plant.Levels.Level1;
             suelo = Plant.Suelos.Acido;
             return locationData;

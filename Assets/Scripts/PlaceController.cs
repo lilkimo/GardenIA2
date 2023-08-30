@@ -5,6 +5,7 @@ using System.Linq;
 
 using EnhancedTouch = UnityEngine.InputSystem.EnhancedTouch;
 using System;
+using UnityEngine.UIElements;
 
 [RequireComponent(typeof(CameraController))]
 // Esta weá debería llamarse InputManager
@@ -17,13 +18,17 @@ public class PlaceController : MonoBehaviour
     [SerializeField]
     private VirtualGardenManager vGM;
     
-    private GameObject plant;
+    private Plant plant;
+    private GameObject prefab;
 
     private CameraController cameraController;
+
+    private GameObject vGarden;
 
     private void Awake()
     {
         cameraController = GetComponent<CameraController>();
+        vGarden = GameObject.Find("Virtual Garden");
 
         EnhancedTouch.TouchSimulation.Enable();
         EnhancedTouch.EnhancedTouchSupport.Enable();
@@ -55,10 +60,10 @@ public class PlaceController : MonoBehaviour
         // EnhancedTouch.Touch += ScalePlant;
     }
 
-    public void SetPlant(GameObject desiredPlant)
+    public void SetPlant(Plant desiredPlant)
     {
         Debug.Log($"Planta cambiada a {desiredPlant}");
-        Debug.Log($"Consumo de la planta: {desiredPlant.transform.GetComponent<ModelData>().Consumo}");
+        Debug.Log($"Consumo de la planta: {desiredPlant.ItemConsumoH2O}");
         plant = desiredPlant;
     }
 
@@ -88,7 +93,7 @@ public class PlaceController : MonoBehaviour
             Debug.Log($"Deselected plant: {selectedPlant}");
             if (isTap)
                 Destroy(selectedPlant.Value.Object);
-                vGM.removePlant(plant.transform.GetComponent<ModelData>().Consumo);
+                vGM.removePlant(selectedPlant.Value.Object.GetComponent<PlantDisplay>().plant.ItemConsumoH2O);
         }
 
         selectedPlant = null;
@@ -102,9 +107,19 @@ public class PlaceController : MonoBehaviour
         else
             plantPose = eaglePlacePlant.PlacePlant(finger);
         
-        if (plantPose.HasValue)
-            Instantiate(plant, plantPose.Value.position, plantPose.Value.rotation, cameraController.virtualGarden.transform);
-            vGM.addPlant(plant.transform.GetComponent<ModelData>().Consumo);
+        if (plantPose.HasValue){
+            GameObject obj = CreatePlant(plant, plantPose.Value.position, plantPose.Value.rotation);
+            // Instantiate(plant, plantPose.Value.position, plantPose.Value.rotation, cameraController.virtualGarden.transform);
+            vGM.addPlant(plant.ItemConsumoH2O);
+            foreach (Transform child in vGarden.transform)
+            {
+                if(child.GetComponent<PlantDisplay>()){
+                    if(plant.ItemConflictos.Contains(child.GetComponent<PlantDisplay>().plant.ItemName)){ // and distancia is < algo
+                        // CAMBIAR COLOR
+                    }
+                }
+            }
+        }
     }
 
     private void onFingerMove(EnhancedTouch.Finger finger)
@@ -176,5 +191,11 @@ public class PlaceController : MonoBehaviour
         // Aquí vvvv vamos a tener que dividir <magnitude> por un múltiplo de la pantalla para
         // que en todos los dispositivos funcione igual.
         selectedPlant.Value.Object.transform.localRotation = Quaternion.Euler(selectedPlant.Value.Object.transform.localRotation.eulerAngles + new Vector3(0, magnitude/2, 0));
+    }
+
+    private GameObject CreatePlant(Plant plant, Vector3 pos, Quaternion rot){
+        GameObject obj = Instantiate(prefab, cameraController.virtualGarden.transform);
+        GameObject model = obj.GetComponent<PlantDisplay>().Initialize(plant, pos, rot, Vector3.one);
+        return model;
     }
 }

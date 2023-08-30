@@ -16,7 +16,10 @@ public class Plant : ScriptableObject
     public bool ItemMantencion;
     public Levels ItemDensidad;
     public Levels ItemResistencia;
-    public string ItemOrigen; // ingresar string con nombre región
+    public string[] ItemOrigen; // ingresar string con nombre región
+    public bool EsCentro;
+    public bool EsSur;
+    public bool EsNorte;
     public Levels ItemTemp; // 1 = baja, 2 = media, 3 = alta
     public Suelos ItemSuelo;
     public string[] ItemConflictos; // ingresar nombre de plantas
