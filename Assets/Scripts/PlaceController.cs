@@ -16,19 +16,17 @@ public class PlaceController : MonoBehaviour
     [SerializeField]
     private EaglePlacePlant eaglePlacePlant;
     [SerializeField]
-    private VirtualGardenManager vGM;
+    private VirtualGardenManager virtualGarden;
     
     private Plant plant;
     private GameObject prefab;
 
     private CameraController cameraController;
 
-    private GameObject vGarden;
 
     private void Awake()
     {
         cameraController = GetComponent<CameraController>();
-        vGarden = GameObject.Find("Virtual Garden");
 
         EnhancedTouch.TouchSimulation.Enable();
         EnhancedTouch.EnhancedTouchSupport.Enable();
@@ -93,7 +91,7 @@ public class PlaceController : MonoBehaviour
             Debug.Log($"Deselected plant: {selectedPlant}");
             if (isTap)
                 Destroy(selectedPlant.Value.Object);
-                vGM.removePlant(selectedPlant.Value.Object.GetComponent<PlantDisplay>().plant.ItemConsumoH2O);
+                virtualGarden.removePlant(selectedPlant.Value.Object.GetComponent<PlantDisplay>().plant.ItemConsumoH2O);
         }
 
         selectedPlant = null;
@@ -107,14 +105,17 @@ public class PlaceController : MonoBehaviour
         else
             plantPose = eaglePlacePlant.PlacePlant(finger);
         
-        if (plantPose.HasValue){
+        if (plantPose.HasValue)
+        {
             GameObject obj = CreatePlant(plant, plantPose.Value.position, plantPose.Value.rotation);
             // Instantiate(plant, plantPose.Value.position, plantPose.Value.rotation, cameraController.virtualGarden.transform);
-            vGM.addPlant(plant.ItemConsumoH2O);
-            foreach (Transform child in vGarden.transform)
+            virtualGarden.addPlant(plant.ItemConsumoH2O);
+            foreach (Transform child in virtualGarden.transform)
             {
-                if(child.GetComponent<PlantDisplay>()){
-                    if(plant.ItemConflictos.Contains(child.GetComponent<PlantDisplay>().plant.ItemName)){ // and distancia is < algo
+                if (child.GetComponent<PlantDisplay>())
+                {
+                    if(plant.ItemConflictos.Contains(child.GetComponent<PlantDisplay>().plant.ItemName)) // and distancia is < algo
+                    {
                         // CAMBIAR COLOR
                     }
                 }
@@ -194,7 +195,7 @@ public class PlaceController : MonoBehaviour
     }
 
     private GameObject CreatePlant(Plant plant, Vector3 pos, Quaternion rot){
-        GameObject obj = Instantiate(prefab, cameraController.virtualGarden.transform);
+        GameObject obj = Instantiate(prefab, virtualGarden.transform);
         GameObject model = obj.GetComponent<PlantDisplay>().Initialize(plant, pos, rot, Vector3.one);
         return model;
     }
