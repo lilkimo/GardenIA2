@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78c25ce079e39f54ab092be3222d7deb, type: 3}
+  m_Name: Alloe_Vera
+  m_EditorClassIdentifier: 
+  arObjectIdentifier: 0
+  ItemSol: 1
+  ItemTamano: 0
+  ItemName: Alloe Vera
+  ItemImage: {fileID: 0}
+  ItemDescription: "El Aloe Vera es una suculenta popular conocida por sus hojas
+    carnosas y gel curativo. Ideal para interiores y exteriores en climas c\xE1lidos,
+    requiere poca agua debido a su naturaleza resistente a la sequ\xEDa. Su gel se
+    utiliza en cuidado de la piel por sus propiedades calmantes y cicatrizantes."
+  GrowthStages:
+  - {fileID: -3949265922299412875, guid: 898a2a84c3070184eba99bc93355935b, type: 3}
+  - {fileID: -6906579801920716814, guid: 898a2a84c3070184eba99bc93355935b, type: 3}
+  - {fileID: -1754761030638271187, guid: 898a2a84c3070184eba99bc93355935b, type: 3}
+  ItemPrecio: 200
+  ItemConsumoH2O: 80
+  ItemMantencion: 0
+  ItemDensidad: 1
+  ItemResistencia: 0
+  ItemOrigen: []
+  EsCentro: 1
+  EsSur: 0
+  EsNorte: 0
+  ItemTemp: 1
+  ItemSuelo: 1
+  ItemConflictos: []

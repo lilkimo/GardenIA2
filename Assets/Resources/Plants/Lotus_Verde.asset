@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78c25ce079e39f54ab092be3222d7deb, type: 3}
+  m_Name: Lotus_Verde
+  m_EditorClassIdentifier: 
+  arObjectIdentifier: 0
+  ItemSol: 1
+  ItemTamano: 0
+  ItemName: Lotus Verde
+  ItemImage: {fileID: 0}
+  ItemDescription: "El Lotus Verde es una planta acu\xE1tica de belleza ex\xF3tica
+    para estanques. Requiere sol pleno y agua tranquila. Ideal para climas c\xE1lidos."
+  GrowthStages:
+  - {fileID: -6832863441873456170, guid: 898a2a84c3070184eba99bc93355935b, type: 3}
+  - {fileID: 6879342655733110696, guid: 898a2a84c3070184eba99bc93355935b, type: 3}
+  - {fileID: -392452446290663390, guid: 898a2a84c3070184eba99bc93355935b, type: 3}
+  ItemPrecio: 200
+  ItemConsumoH2O: 300
+  ItemMantencion: 1
+  ItemDensidad: 1
+  ItemResistencia: 0
+  ItemOrigen: []
+  EsCentro: 1
+  EsSur: 0
+  EsNorte: 0
+  ItemTemp: 1
+  ItemSuelo: 0
+  ItemConflictos: []
