@@ -41,14 +41,6 @@ public class PlantDisplay: MonoBehaviour
         model = Instantiate(plant.GrowthStages[stage], transform);
     }
 
-    public void Serialize()
-    {
-        string json = JsonUtility.ToJson(new SerializablePlant(14, transform.localPosition, transform.localRotation, transform.localScale));
-        Debug.Log(json);
-        SerializablePlant info = JsonUtility.FromJson<SerializablePlant>(json);
-        // Debug.Log(info.plant);
-        // Debug.Log(info.position);
-        // Debug.Log(info.rotation);
-        // Debug.Log(info.scale);
-    }
+    public SerializablePlant Serialize() =>
+        new(plant.arObjectIdentifier, transform.localPosition, transform.localRotation, transform.localScale);
 }

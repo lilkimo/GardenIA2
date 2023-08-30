@@ -6,6 +6,8 @@ using System.Linq;
 using EnhancedTouch = UnityEngine.InputSystem.EnhancedTouch;
 using System;
 using UnityEngine.UIElements;
+using System.IO;
+
 
 [RequireComponent(typeof(CameraController))]
 // Esta weá debería llamarse InputManager
@@ -23,6 +25,7 @@ public class PlaceController : MonoBehaviour
 
     private CameraController cameraController;
 
+    public List<PlantDisplay> activePlants = new();
 
     private void Awake()
     {
@@ -31,9 +34,20 @@ public class PlaceController : MonoBehaviour
 
         cameraController = GetComponent<CameraController>();
 
-        // SerializablePlant plant = JsonUtility.FromJson<SerializablePlant>("{\"plant\":0,\"position\":{\"x\":-0.29075664281845095,\"y\":-4.64,\"z\":-1.1594830751419068},\"rotation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":1.0},\"scale\":{\"x\":1.0,\"y\":1.0,\"z\":1.0},\"currGrowthStage\":0}");
-        // PlantDisplay obj = Instantiate(prefab, virtualGarden.transform).GetComponent<PlantDisplay>();
-        // obj.Initialize(plant);
+        string path = Path.Combine(Application.persistentDataPath, "plants.json");
+        //List<SerializablePlant> serializedPlants = new() { new SerializablePlant(0, new Vector3(-0.29075664281845095f, -4.64f, -1.1594830751419068f), new Quaternion(0, 0, 0, 1), Vector3.one) };
+        //File.WriteAllText(path, JsonUtility.ToJson(new SerializablePlantArray(serializedPlants)));
+        foreach (var serializedPlant in JsonUtility.FromJson<SerializablePlantArray>(File.ReadAllText(path)).plants)
+        {
+            PlantDisplay obj = Instantiate(prefab, virtualGarden.transform).GetComponent<PlantDisplay>();
+            activePlants.Add(obj.Initialize(serializedPlant));
+        }
+    }
+
+    public void SaveChanges()
+    {
+        SerializablePlantArray serializedPlants = new(activePlants.Select(plantDisplay => plantDisplay.Serialize()));
+        File.WriteAllText(Path.Combine(Application.persistentDataPath, "plants.json"), JsonUtility.ToJson(serializedPlants));
     }
 
     public void EnablePlaceMode()
@@ -94,11 +108,16 @@ public class PlaceController : MonoBehaviour
         {
             Debug.Log($"Deselected plant: {selectedPlant}");
             if (isTap)
-                Destroy(selectedPlant.Value.Object);
-                virtualGarden.removePlant(selectedPlant.Value.Object.GetComponent<PlantDisplay>().plant.ItemConsumoH2O);
+            {
+                PlantDisplay _plant = selectedPlant.Value.Object.transform.parent.GetComponent<PlantDisplay>();
+                virtualGarden.removePlant(_plant.plant.ItemConsumoH2O);
+                activePlants.Remove(_plant);
+                Destroy(_plant.gameObject);
+            }
         }
 
         selectedPlant = null;
+        SaveChanges();
     }
 
     public void PlacePlant(EnhancedTouch.Finger finger)
@@ -111,8 +130,8 @@ public class PlaceController : MonoBehaviour
         
         if (plantPose.HasValue)
         {
-            CreatePlant(plant, plantPose.Value.position, plantPose.Value.rotation);
-            // Instantiate(plant, plantPose.Value.position, plantPose.Value.rotation, cameraController.virtualGarden.transform);
+            PlantDisplay obj = Instantiate(prefab, virtualGarden.transform).GetComponent<PlantDisplay>();
+            activePlants.Add(obj.Initialize(plant, plantPose.Value.position, plantPose.Value.rotation, Vector3.one));
             virtualGarden.addPlant(plant.ItemConsumoH2O);
             foreach (Transform child in virtualGarden.transform)
             {
@@ -124,6 +143,7 @@ public class PlaceController : MonoBehaviour
                     }
                 }
             }
+            SaveChanges();
         }
     }
 
@@ -196,12 +216,5 @@ public class PlaceController : MonoBehaviour
         // Aquí vvvv vamos a tener que dividir <magnitude> por un múltiplo de la pantalla para
         // que en todos los dispositivos funcione igual.
         selectedPlant.Value.Object.transform.localRotation = Quaternion.Euler(selectedPlant.Value.Object.transform.localRotation.eulerAngles + new Vector3(0, magnitude/2, 0));
-    }
-
-    private void CreatePlant(Plant plant, Vector3 position, Quaternion rotation)
-    {
-        Debug.Log("creando planta");
-        PlantDisplay obj = Instantiate(prefab, virtualGarden.transform).GetComponent<PlantDisplay>();
-        obj.Initialize(plant, position, rotation, Vector3.one);
     }
 }

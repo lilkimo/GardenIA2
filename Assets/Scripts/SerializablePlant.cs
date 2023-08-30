@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [Serializable]
@@ -18,4 +20,13 @@ public class SerializablePlant
         this.scale = scale;
         this.currGrowthStage = currGrowthStage;
     }
+}
+
+[Serializable]
+public class SerializablePlantArray
+{
+    public SerializablePlant[] plants;
+
+    public SerializablePlantArray(IEnumerable<SerializablePlant> plants) =>
+        this.plants = plants.ToArray();
 }
