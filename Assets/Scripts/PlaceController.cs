@@ -19,14 +19,16 @@ public class PlaceController : MonoBehaviour
     private VirtualGardenManager virtualGarden;
     
     private Plant plant;
-    private GameObject prefab;
+    public GameObject prefab;
 
     private CameraController cameraController;
 
+    private GameObject vGarden;
 
     private void Awake()
     {
         cameraController = GetComponent<CameraController>();
+        vGarden = GameObject.Find("Virtual Garden");
 
         EnhancedTouch.TouchSimulation.Enable();
         EnhancedTouch.EnhancedTouchSupport.Enable();
@@ -110,13 +112,13 @@ public class PlaceController : MonoBehaviour
             GameObject obj = CreatePlant(plant, plantPose.Value.position, plantPose.Value.rotation);
             // Instantiate(plant, plantPose.Value.position, plantPose.Value.rotation, cameraController.virtualGarden.transform);
             virtualGarden.addPlant(plant.ItemConsumoH2O);
-            foreach (Transform child in virtualGarden.transform)
+            foreach (Transform child in vGarden.transform)
             {
                 if (child.GetComponent<PlantDisplay>())
                 {
                     if(plant.ItemConflictos.Contains(child.GetComponent<PlantDisplay>().plant.ItemName)) // and distancia is < algo
                     {
-                        // CAMBIAR COLOR
+                        // CAMBIAR COLOR DE obj
                     }
                 }
             }
