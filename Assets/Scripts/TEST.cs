@@ -61,7 +61,7 @@ public class TEST: MonoBehaviour
     public void LoadMesh() {
         // string json = JsonUtility.ToJson(new SerializableMeshArray(meshArray));
         string ruta = Path.Combine(Application.persistentDataPath, "meshes", "mesh1.json");
-        string json = File.ReadAllText("C:/Proyectos Unity/Camilo/mesh1.json"); //IMPORANTE: cambiar por ruta
+        string json = File.ReadAllText("C:/Proyectos Unity/Github GardenIA/mesh1.json"); //IMPORANTE: cambiar por ruta
         Debug.Log("asdadasda" + json);
         SerializableMeshArray serializedMeshes = JsonUtility.FromJson<SerializableMeshArray>(json);
         Mesh[] meshes = serializedMeshes.ToMeshArray();
