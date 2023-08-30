@@ -757,7 +757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aRPlacePlant: {fileID: 6580886291115212625}
   eaglePlacePlant: {fileID: 3572028665270677407}
-  vGM: {fileID: 99936673}
+  virtualGarden: {fileID: 0}
 --- !u!114 &483415433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1247,7 +1247,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -6662411.5, y: 4859428.5}
+  m_AnchoredPosition: {x: -6756099.5, y: 4859428.5}
   m_SizeDelta: {x: 0, y: 440}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &803090642
@@ -2423,7 +2423,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2054380102}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.0000000030392262, y: 0.18014856, z: 0.000000016594653, w: -0.9836394}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

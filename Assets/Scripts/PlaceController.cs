@@ -19,17 +19,21 @@ public class PlaceController : MonoBehaviour
     private VirtualGardenManager virtualGarden;
     
     private Plant plant;
-    private GameObject prefab;
+    public GameObject prefab;
 
     private CameraController cameraController;
 
 
     private void Awake()
     {
-        cameraController = GetComponent<CameraController>();
-
         EnhancedTouch.TouchSimulation.Enable();
         EnhancedTouch.EnhancedTouchSupport.Enable();
+
+        cameraController = GetComponent<CameraController>();
+
+        // SerializablePlant plant = JsonUtility.FromJson<SerializablePlant>("{\"plant\":0,\"position\":{\"x\":-0.29075664281845095,\"y\":-4.64,\"z\":-1.1594830751419068},\"rotation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":1.0},\"scale\":{\"x\":1.0,\"y\":1.0,\"z\":1.0},\"currGrowthStage\":0}");
+        // PlantDisplay obj = Instantiate(prefab, virtualGarden.transform).GetComponent<PlantDisplay>();
+        // obj.Initialize(plant);
     }
 
     public void EnablePlaceMode()
@@ -107,7 +111,7 @@ public class PlaceController : MonoBehaviour
         
         if (plantPose.HasValue)
         {
-            GameObject obj = CreatePlant(plant, plantPose.Value.position, plantPose.Value.rotation);
+            CreatePlant(plant, plantPose.Value.position, plantPose.Value.rotation);
             // Instantiate(plant, plantPose.Value.position, plantPose.Value.rotation, cameraController.virtualGarden.transform);
             virtualGarden.addPlant(plant.ItemConsumoH2O);
             foreach (Transform child in virtualGarden.transform)
@@ -194,9 +198,10 @@ public class PlaceController : MonoBehaviour
         selectedPlant.Value.Object.transform.localRotation = Quaternion.Euler(selectedPlant.Value.Object.transform.localRotation.eulerAngles + new Vector3(0, magnitude/2, 0));
     }
 
-    private GameObject CreatePlant(Plant plant, Vector3 pos, Quaternion rot){
-        GameObject obj = Instantiate(prefab, virtualGarden.transform);
-        GameObject model = obj.GetComponent<PlantDisplay>().Initialize(plant, pos, rot, Vector3.one);
-        return model;
+    private void CreatePlant(Plant plant, Vector3 position, Quaternion rotation)
+    {
+        Debug.Log("creando planta");
+        PlantDisplay obj = Instantiate(prefab, virtualGarden.transform).GetComponent<PlantDisplay>();
+        obj.Initialize(plant, position, rotation, Vector3.one);
     }
 }
