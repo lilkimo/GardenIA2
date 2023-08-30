@@ -35,13 +35,12 @@ public class PlaceController : MonoBehaviour
         cameraController = GetComponent<CameraController>();
 
         string path = Path.Combine(Application.persistentDataPath, "plants.json");
-        //List<SerializablePlant> serializedPlants = new() { new SerializablePlant(0, new Vector3(-0.29075664281845095f, -4.64f, -1.1594830751419068f), new Quaternion(0, 0, 0, 1), Vector3.one) };
-        //File.WriteAllText(path, JsonUtility.ToJson(new SerializablePlantArray(serializedPlants)));
-        foreach (var serializedPlant in JsonUtility.FromJson<SerializablePlantArray>(File.ReadAllText(path)).plants)
-        {
-            PlantDisplay obj = Instantiate(prefab, virtualGarden.transform).GetComponent<PlantDisplay>();
-            activePlants.Add(obj.Initialize(serializedPlant));
-        }
+        if (File.Exists(path))
+            foreach (var serializedPlant in JsonUtility.FromJson<SerializablePlantArray>(File.ReadAllText(path)).plants)
+            {
+                PlantDisplay obj = Instantiate(prefab, virtualGarden.transform).GetComponent<PlantDisplay>();
+                activePlants.Add(obj.Initialize(serializedPlant));
+            }
     }
 
     public void SaveChanges()
