@@ -757,8 +757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aRPlacePlant: {fileID: 6580886291115212625}
   eaglePlacePlant: {fileID: 3572028665270677407}
-  virtualGarden: {fileID: 0}
-  prefab: {fileID: 0}
+  vGM: {fileID: 99936673}
 --- !u!114 &483415433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1248,7 +1247,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -6680549, y: 4859428.5}
+  m_AnchoredPosition: {x: -6662411.5, y: 4859428.5}
   m_SizeDelta: {x: 0, y: 440}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &803090642
@@ -1694,8 +1693,7 @@ MonoBehaviour:
   itemButtonManager: {fileID: 7312142440667565442, guid: 86235496a1b6cb049a8653d64cac8520, type: 3}
   menuManager: {fileID: 483415433}
   placeController: {fileID: 483415432}
-  wrap: {fileID: 1543073244050948324, guid: 787a675c24a3cfd4683d767584ff39af, type: 3}
-  locationManager: {fileID: 1252402390}
+  locationManager: {fileID: 0}
 --- !u!4 &1146376300
 Transform:
   m_ObjectHideFlags: 0
@@ -1710,50 +1708,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1252402389
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1252402391}
-  - component: {fileID: 1252402390}
-  m_Layer: 0
-  m_Name: LocationManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1252402390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1252402389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b6751f62908f654197e967babee5757, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1252402391
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1252402389}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 574.75256, y: 902.0945, z: 204.57996}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1517110054
 GameObject:

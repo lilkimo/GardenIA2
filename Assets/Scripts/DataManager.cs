@@ -21,9 +21,6 @@ public class DataManager : MonoBehaviour
     private PlaceController placeController;
 
     [SerializeField] 
-    private GameObject wrap;
-
-    [SerializeField] 
     private LocationManager locationManager;
 
     // Start is called before the first frame update
@@ -34,7 +31,6 @@ public class DataManager : MonoBehaviour
             Debug.Log("DataManager no puede acceder a MenuManager.");
         }
         menuManager.OnPlantas += CreateButtons;
-        placeController.prefab = wrap;
     }
 
     private void CreateButtons()
@@ -47,8 +43,7 @@ public class DataManager : MonoBehaviour
         List<Plant> otherPlants = new List<Plant>();
         foreach (Plant p in plants)
         {
-            if(p != null) Debug.Log("Hay una planta: "+p.ItemOrigen[0]);
-            if (p.ItemOrigen.Contains(locationManager.UserRegion)) localPlants.Add(p);
+            if (p.ItemOrigen.Contains(locationManager.LocationData[0])) localPlants.Add(p);
             else otherPlants.Add(p);
         }
         localPlants.AddRange(otherPlants);
@@ -56,10 +51,6 @@ public class DataManager : MonoBehaviour
         foreach (var item in localPlants)
         {
             ItemButtonManager itemButton = Instantiate(itemButtonManager, buttonContainer.transform);
-
-            Debug.Log($"Se creará el bottón de nombre {item.ItemName}, con un consumo de {item.ItemConsumoH2O}.");
-            if(item.ItemImage != null) Debug.Log($"Hay imagen {item.ItemImage}.");
-
             itemButton.Init(item.ItemName, item.ItemConsumoH2O.ToString(), item.ItemImage);
             itemButton.GetComponentInChildren<Toggle>().group = buttonContainer.GetComponent<ToggleGroup>();
             itemButton.button.onClick.AddListener( () => {
