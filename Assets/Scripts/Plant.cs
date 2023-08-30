@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class Plant : ScriptableObject
 {
+    public int arObjectIdentifier; // unique identifier
     public bool ItemSol; // si = planta necesita sol, no = no sol
     public Levels ItemTamano; // 1 = pequeña, 2 = mediana, 3 = grande
     public string ItemName; // nombre planta
@@ -23,7 +24,6 @@ public class Plant : ScriptableObject
     public Levels ItemTemp; // 1 = baja, 2 = media, 3 = alta
     public Suelos ItemSuelo;
     public string[] ItemConflictos; // ingresar nombre de plantas
-    public string arObjectIdentifier; // unique identifier
 
     public enum Levels
     {
