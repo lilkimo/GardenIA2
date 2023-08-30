@@ -37,7 +37,8 @@ public class VirtualGardenManager : MonoBehaviour
     [SerializeField]
     public GameObject terrain;
 
-    public void addPlant(int Consumo){
+    public void addPlant(int Consumo)
+    {
         THC += Consumo;
         Debug.Log("Se agregó una planta.\nNuevo consumo hídrico del Jardín Virtual: " + totalHidricConsumption);
     }
