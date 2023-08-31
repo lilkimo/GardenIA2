@@ -30,8 +30,23 @@ public class VirtualGardenManager : MonoBehaviour
         }
     }
 
-    void Start(){
+    private void Start(){
         THC = 0;
+    }
+
+    private void Update() {
+        switch(estadoTap%3) 
+        {
+        case 1:
+            cifra.GetComponent<Text>().text = $"{THC.ToString()}ml/d";
+            break;
+        case 2:
+            cifra.GetComponent<Text>().text = $"{(THC*7).ToString()}ml/s";
+            break;
+        case 0:
+            cifra.GetComponent<Text>().text = $"{(THC*30).ToString()}ml/m";
+            break;
+        }
     }
 
     [SerializeField]

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78c25ce079e39f54ab092be3222d7deb, type: 3}
   m_Name: Mustard plant
   m_EditorClassIdentifier: 
+  arObjectIdentifier: 2
   ItemSol: 1
   ItemTamano: 1
   ItemName: Mustard plant
@@ -26,11 +27,13 @@ MonoBehaviour:
   ItemMantencion: 0
   ItemDensidad: 0
   ItemResistencia: 1
-  ItemOrigen: []
+  ItemOrigen:
+  - Region Metropolitana
+  - Region del Maule
+  - Antofagasta
   EsCentro: 1
   EsSur: 1
   EsNorte: 1
   ItemTemp: 0
   ItemSuelo: 0
   ItemConflictos: []
-  arObjectIdentifier: 2

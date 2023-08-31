@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78c25ce079e39f54ab092be3222d7deb, type: 3}
   m_Name: Chute Plant
   m_EditorClassIdentifier: 
+  arObjectIdentifier: 1
   ItemSol: 0
   ItemTamano: 0
   ItemName: Chute Plant
@@ -26,11 +27,12 @@ MonoBehaviour:
   ItemMantencion: 1
   ItemDensidad: 0
   ItemResistencia: 1
-  ItemOrigen: []
+  ItemOrigen:
+  - Region Metropolitana
+  - Region del Maule
   EsCentro: 1
   EsSur: 1
   EsNorte: 0
   ItemTemp: 0
   ItemSuelo: 0
   ItemConflictos: []
-  arObjectIdentifier: 1

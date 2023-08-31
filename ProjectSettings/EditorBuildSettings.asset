@@ -11,6 +11,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/JardinInteractivo.unity
     guid: dc3e981c2c70b1c42854bd919df1df0f
+  - enabled: 1
+    path: Assets/Scenes/ScanScene.unity
+    guid: c8493f4b393defb45b0f319431fb3df0
+  - enabled: 1
+    path: Assets/Scenes/ModelScene.unity
+    guid: 4f6fe025e82c08d428a58d5497199bbf
+  - enabled: 1
+    path: Assets/Scenes/EmailSenderScene.unity
+    guid: d65dec13dcc99c545afd788d6fb0ce25
   m_configObjects:
     Niantic.Lightship.AR.LightshipSettings: {fileID: 11400000, guid: 8fa1c6dfff126964ba2f83fc12adcaed, type: 2}
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: b41449d5a0b6f0f43973679efe43fb76, type: 2}

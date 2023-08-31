@@ -32,7 +32,8 @@ MonoBehaviour:
   ItemMantencion: 1
   ItemDensidad: 1
   ItemResistencia: 0
-  ItemOrigen: []
+  ItemOrigen:
+  - Antofagasta
   EsCentro: 0
   EsSur: 0
   EsNorte: 1
