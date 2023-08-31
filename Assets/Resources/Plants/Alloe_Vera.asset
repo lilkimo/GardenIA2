@@ -22,9 +22,9 @@ MonoBehaviour:
     requiere poca agua debido a su naturaleza resistente a la sequ\xEDa. Su gel se
     utiliza en cuidado de la piel por sus propiedades calmantes y cicatrizantes."
   GrowthStages:
-  - {fileID: -3949265922299412875, guid: 898a2a84c3070184eba99bc93355935b, type: 3}
-  - {fileID: -6906579801920716814, guid: 898a2a84c3070184eba99bc93355935b, type: 3}
-  - {fileID: -1754761030638271187, guid: 898a2a84c3070184eba99bc93355935b, type: 3}
+  - {fileID: 7049345184805635032, guid: 7573ca59bf1479444aaab311e3f28ae0, type: 3}
+  - {fileID: 6341209862614461794, guid: ec5bb82f0d615dd46bc7b97f4e4d3bc2, type: 3}
+  - {fileID: 8571424550989047501, guid: 72ac1e2344966f04a95e845ee5db8bed, type: 3}
   ItemPrecio: 200
   ItemConsumoH2O: 80
   ItemMantencion: 0
