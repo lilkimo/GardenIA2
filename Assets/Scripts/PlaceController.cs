@@ -7,7 +7,7 @@ using EnhancedTouch = UnityEngine.InputSystem.EnhancedTouch;
 using System;
 using UnityEngine.UIElements;
 using System.IO;
-
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(CameraController))]
 // Esta weá debería llamarse InputManager
@@ -123,7 +123,7 @@ public class PlaceController : MonoBehaviour
 
     public void PlacePlant(EnhancedTouch.Finger finger)
     {
-        if (plant == null)
+        if (plant == null  || IsPointerOverUIObject())
             return;
         
         Pose? plantPose;
@@ -220,5 +220,13 @@ public class PlaceController : MonoBehaviour
         // Aquí vvvv vamos a tener que dividir <magnitude> por un múltiplo de la pantalla para
         // que en todos los dispositivos funcione igual.
         selectedPlant.Value.Object.transform.localRotation = Quaternion.Euler(selectedPlant.Value.Object.transform.localRotation.eulerAngles + new Vector3(0, magnitude/2, 0));
+    }
+
+    private bool IsPointerOverUIObject() {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        return results.Count > 0;
     }
 }

@@ -1131,11 +1131,8 @@ MonoBehaviour:
   plantaVetableConstructor: {fileID: 7394577307125353242, guid: 13510f7bc67e17544817cb4bb7cec98e, type: 3}
   allPlants:
   - {fileID: 11400000, guid: 0fce3bedd87ee8d48a8b4b288d96be04, type: 2}
-  - {fileID: 11400000, guid: 8b230718e67e35845a7330ff73924628, type: 2}
   - {fileID: 11400000, guid: 37069381c87e0564bafea07d2b9c775b, type: 2}
   - {fileID: 11400000, guid: 7f30554a56f0fe14484ac28ec4bfce60, type: 2}
-  - {fileID: 11400000, guid: 9ed2b65e8fcc28c499455474ed85155b, type: 2}
-  - {fileID: 11400000, guid: 11f96191317deb24a9faaa60d098c41e, type: 2}
   plantaJardinConstructor: {fileID: 8317011432163190925, guid: 77fb1f176d9f74e45b3a70f6510d77d3, type: 3}
   VistaPlantasJardin: {fileID: 1833118621}
 --- !u!1 &166834856
