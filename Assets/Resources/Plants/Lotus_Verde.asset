@@ -20,15 +20,16 @@ MonoBehaviour:
   ItemDescription: "El Lotus Verde es una planta acu\xE1tica de belleza ex\xF3tica
     para estanques. Requiere sol pleno y agua tranquila. Ideal para climas c\xE1lidos."
   GrowthStages:
-  - {fileID: -6832863441873456170, guid: 898a2a84c3070184eba99bc93355935b, type: 3}
-  - {fileID: 6879342655733110696, guid: 898a2a84c3070184eba99bc93355935b, type: 3}
-  - {fileID: -392452446290663390, guid: 898a2a84c3070184eba99bc93355935b, type: 3}
+  - {fileID: 8619634937878469098, guid: 2e410f31c50bb84459736b6ec18ee994, type: 3}
+  - {fileID: 3886404511526814143, guid: 9277d10953696524eb5fee042d9fe79b, type: 3}
+  - {fileID: 7492652632594894087, guid: 3457158d0365d264a85905a203d8fe33, type: 3}
   ItemPrecio: 200
   ItemConsumoH2O: 300
   ItemMantencion: 1
   ItemDensidad: 1
   ItemResistencia: 0
-  ItemOrigen: []
+  ItemOrigen:
+  - Region Metropolitana
   EsCentro: 1
   EsSur: 0
   EsNorte: 0
