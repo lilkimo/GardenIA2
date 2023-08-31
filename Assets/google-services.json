@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "866979152054",
+    "firebase_url": "https://gardenai-3bf4a-default-rtdb.firebaseio.com",
+    "project_id": "gardenai-3bf4a",
+    "storage_bucket": "gardenai-3bf4a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:866979152054:android:f292db70e5ccafa0962617",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.GardenIAnewMesh"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "866979152054-oiv3sae48884nu2udr810fe5ufkrccr5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCH7esr9e17DbGZ6fS99c113Do0FiacgHw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "866979152054-oiv3sae48884nu2udr810fe5ufkrccr5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

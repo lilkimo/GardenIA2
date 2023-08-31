@@ -61,7 +61,7 @@ public class TEST: MonoBehaviour
     public void LoadMesh() {
         // string json = JsonUtility.ToJson(new SerializableMeshArray(meshArray));
         string ruta = Path.Combine(Application.persistentDataPath, "meshes", "mesh1.json");
-        string json = File.ReadAllText("C:/Proyectos Unity/Github GardenIA/mesh1.json"); //IMPORANTE: cambiar por ruta
+        string json = File.ReadAllText(ruta); //IMPORANTE: cambiar por ruta"C:/Proyectos Unity/Github GardenIA/mesh1.json"
         Debug.Log("asdadasda" + json);
         SerializableMeshArray serializedMeshes = JsonUtility.FromJson<SerializableMeshArray>(json);
         Mesh[] meshes = serializedMeshes.ToMeshArray();
@@ -69,7 +69,9 @@ public class TEST: MonoBehaviour
         {
             MeshFilter chunk = Instantiate(meshChunk, transform);
             chunk.sharedMesh = mesh;
-            chunk.transform.localScale = new Vector3(1000f, 1000f, 1000f);
+            chunk.transform.localScale = new Vector3(1f, 1f, 1f);
+            chunk.transform.position = new Vector3(0f, 0f,0f);
+            Debug.Log("Mesh cargado");
         }
     }
 

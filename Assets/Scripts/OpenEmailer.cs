@@ -10,8 +10,9 @@ public class OpenEmailer : MonoBehaviour
 
 
     public InputField Mensaje;
+    public InputField Asunto;
     public void SendEmailRequest() 
     {
-        Emailer.SendEmail(Mensaje.text);
+        Emailer.SendEmail(Mensaje.text, Asunto.text);
     }
 }

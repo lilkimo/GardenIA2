@@ -8,18 +8,18 @@ using MailKit.Security;
  
 public static class Emailer
 {
-    public static void SendEmail(string mensaje)
+    public static void SendEmail(string mensaje, string asunto)
     {
         var message = new MimeMessage();
-        message.From.Add( new MailboxAddress( "Aqui va el nombre del que lo envía", "dotter.gardenai@outlook.com" ) );
-        message.To.Add( new MailboxAddress( "Aqui va el nombre del que lo envía", "dotter.gardenai@outlook.com" ) );
-        message.Subject = "Aqui va el Asunto";
+        message.From.Add( new MailboxAddress( "GardenIA", "dotter.gardenai@outlook.com" ) );
+        message.To.Add( new MailboxAddress( "GardenIA", "dotter.gardenai@outlook.com" ) );
+        message.Subject = mensaje;
  
         var multipartBody = new Multipart( "mixed" );
         {
             var textPart = new TextPart( "plain" )
             {
-                Text = mensaje
+                Text = asunto
             };
             multipartBody.Add( textPart );
 
