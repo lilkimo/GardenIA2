@@ -16,7 +16,7 @@ MonoBehaviour:
   ItemSol: 1
   ItemTamano: 0
   ItemName: Alloe Vera
-  ItemImage: {fileID: 0}
+  ItemImage: {fileID: 21300000, guid: bbbcd6017075c724881ab5b2e2abb42f, type: 3}
   ItemDescription: "El Aloe Vera es una suculenta popular conocida por sus hojas
     carnosas y gel curativo. Ideal para interiores y exteriores en climas c\xE1lidos,
     requiere poca agua debido a su naturaleza resistente a la sequ\xEDa. Su gel se
