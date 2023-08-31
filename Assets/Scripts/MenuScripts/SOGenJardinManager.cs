@@ -98,7 +98,7 @@ public class SOGenJardinManager : MonoBehaviour
         return nombres;
     }
     Plant.Levels ParseToLevel(string adj){
-        switch (adj.Remove(-1))
+        switch (adj.Remove(adj.Length - 1, 1))
         {
             case "Baj":
                 return Plant.Levels.Level1;
@@ -129,17 +129,19 @@ public class SOGenJardinManager : MonoBehaviour
         System.Random rand = new System.Random();
         Dictionary<string, PlantaInfo> plantasJardin = new Dictionary<string, PlantaInfo>();
 
+        if(!allPlants.Any()) Debug.Log("allPlants vacio.");
         List<int> weightedPlants = Enumerable.Range(0, allPlants.Count).ToList();
         int i = 0;
         while(i < allPlants.Count){
-            if(allPlants[i].ItemOrigen.Contains(locationManager.LocationData[0])) weightedPlants.Add(i);
+            if(allPlants[i].ItemOrigen.Contains(locationManager.UserRegion)) weightedPlants.Add(i);
             i++;
         }
 
         Plant planta = allPlants[weightedPlants[rand.Next(weightedPlants.Count)]];
         if (planta != null) Debug.Log("Se escogió una planta aleatoria: "+ planta.ItemName);
 
-        while((saldoCosto - planta.ItemPrecio >= 0) && (saldoConsumo - planta.ItemConsumoH2O >= 0) && plantasJardin.Sum(x => x.Value.cantidad) <= 10){
+        int cont = 20;
+        while((saldoCosto - planta.ItemPrecio >= 0) && (saldoConsumo - planta.ItemConsumoH2O >= 0) && plantasJardin.Sum(x => x.Value.cantidad) <= 10 && cont > 0){
             Debug.Log("Se inicia el proceso de validación...");
 
             if (planta.ItemDensidad <= densidad // Si la densidad es adecuada [cambiar a futuro]
@@ -173,12 +175,14 @@ public class SOGenJardinManager : MonoBehaviour
             Densidad escogida: {densidad}. Densidad de la planta: {planta.ItemDensidad}
             Mantención: {mantencion}. Mantención de la planta: {planta.ItemMantencion}
             Flujo escogido: {flujo}. Flujo de la planta: {planta.ItemResistencia}
-            Temperatura del usuario: {locationManager.LocationData[1]}. Temperatura de la planta: {planta.ItemTemp}
-            Tipo de suelo del usuario: {locationManager.LocationData[2]}. Tiopo de suelo de la planta: {planta.ItemSuelo}
+            Temperatura del usuario: {locationManager.Temperatura}. Temperatura de la planta: {planta.ItemTemp}
+            Tipo de suelo del usuario: {locationManager.Suelo}. Tiopo de suelo de la planta: {planta.ItemSuelo}
             ");
 
             planta = allPlants[weightedPlants[rand.Next(weightedPlants.Count)]];
             if (planta != null) Debug.Log("Se escogió una planta aleatoria: "+ planta.ItemName);
+
+            cont--;
         }
         return plantasJardin;
     }

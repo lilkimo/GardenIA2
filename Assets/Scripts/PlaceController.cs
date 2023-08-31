@@ -41,6 +41,7 @@ public class PlaceController : MonoBehaviour
             {
                 PlantDisplay obj = Instantiate(prefab, virtualGarden.transform).GetComponent<PlantDisplay>();
                 activePlants.Add(obj.Initialize(serializedPlant));
+                virtualGarden.addPlant(obj.plant.ItemConsumoH2O);
             }
     }
 

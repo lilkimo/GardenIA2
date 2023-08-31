@@ -30,7 +30,8 @@ MonoBehaviour:
   ItemMantencion: 0
   ItemDensidad: 1
   ItemResistencia: 0
-  ItemOrigen: []
+  ItemOrigen:
+  - Region Metropolitana
   EsCentro: 1
   EsSur: 0
   EsNorte: 0

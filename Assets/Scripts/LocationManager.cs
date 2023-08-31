@@ -60,7 +60,7 @@ public class LocationManager : MonoBehaviour
             Debug.LogFormat("Android and Location not enabled");
             userRegion = "Region Metropolitana";
             temperatura = Plant.Levels.Level1;
-            suelo = Plant.Suelos.Acido;
+            suelo = Plant.Suelos.Alcalino;
             Debug.Log(String.Format("Los datos por defecto serán: {0}, {1}, {2}.", UserRegion, Temperatura, Suelo));
             yield break;
         }
@@ -82,7 +82,7 @@ public class LocationManager : MonoBehaviour
             print("Timed out");
             userRegion = "Region Metropolitana";
             temperatura = Plant.Levels.Level1;
-            suelo = Plant.Suelos.Acido;
+            suelo = Plant.Suelos.Alcalino;
             Debug.Log(String.Format("Los datos por defecto serán: {0}, {1}, {2}.", UserRegion, Temperatura, Suelo));
             yield break;
         }
@@ -93,7 +93,7 @@ public class LocationManager : MonoBehaviour
             print("Unable to determine device location");
             userRegion = "Region Metropolitana";
             temperatura = Plant.Levels.Level1;
-            suelo = Plant.Suelos.Acido;
+            suelo = Plant.Suelos.Alcalino;
             Debug.Log(String.Format("Los datos por defecto serán: {0}, {1}, {2}.", UserRegion, Temperatura, Suelo));
             yield break;
         }
@@ -135,7 +135,7 @@ public class LocationManager : MonoBehaviour
             List<string> locationData = new List<string>(){"Region Metropolitana", "Templada", "Vertisol"};
             userRegion = "Region Metropolitana";
             temperatura = Plant.Levels.Level1;
-            suelo = Plant.Suelos.Acido;
+            suelo = Plant.Suelos.Alcalino;
             return locationData;
         }
         else return null;
