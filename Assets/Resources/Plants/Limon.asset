@@ -24,9 +24,9 @@ MonoBehaviour:
     su uso culinario, sus beneficiosas propiedades c\xEDtricas lo hacen vers\xE1til
     en productos para el cuidado personal y limpieza del hogar."
   GrowthStages:
-  - {fileID: 1139572726157748, guid: 3c98bb4bee2f2ba4b92a2fbca7b8831f, type: 3}
-  - {fileID: 1983900538122600, guid: e1a86f799eb10924597db250eb786896, type: 3}
-  - {fileID: 1473601184474156, guid: 67762154df3b7ca4eaaebcc646c11bbf, type: 3}
+  - {fileID: 4113269958469314956, guid: 2c7a145ad27b2cf4f8b61b94095a412b, type: 3}
+  - {fileID: 1379922392659941387, guid: bec1d6a97d989e4439b6d2440ebe9fa3, type: 3}
+  - {fileID: 6877031411956921444, guid: 5fbedca445bc4084c93a5b167368a57d, type: 3}
   ItemPrecio: 500
   ItemConsumoH2O: 400
   ItemMantencion: 1
