@@ -123,6 +123,9 @@ public class PlaceController : MonoBehaviour
 
     public void PlacePlant(EnhancedTouch.Finger finger)
     {
+        if (plant == null)
+            return;
+        
         Pose? plantPose;
         if (cameraController.aRMode)
             plantPose = aRPlacePlant.PlacePlant(finger);

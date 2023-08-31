@@ -9,11 +9,11 @@ using System.Linq;
 public class DataManager : MonoBehaviour
 {
     [SerializeField]
-    private List<Plant> plants = new List<Plant>();
+    private Plant[] plants;// = new List<Plant>();
     [SerializeField]
-    private GameObject buttonContainer;
+    private ToggleGroup buttonContainer;
     [SerializeField]
-    private ItemButtonManager itemButtonManager;
+    private ItemButtonManager itemPrefab;
 
     [SerializeField]
     private MenuManager menuManager;
@@ -28,7 +28,10 @@ public class DataManager : MonoBehaviour
     [SerializeField]
     private Transform virtualGarden;
 
-    // Start is called before the first frame update
+    void Awake()
+    {
+        plants = Resources.LoadAll<Plant>("Plants");
+    }
     void Start()
     {
         if(menuManager == null)
@@ -42,9 +45,9 @@ public class DataManager : MonoBehaviour
         // Habría que hacer que automáticamente se seleccione la primera planta de la lista.
         // (Es más fácil que programar qué pasaría si quieres poner una planta pero no has
         // ninguna seleccionada)
-        placeController.SetPlant(plants[0]);
-        List<Plant> localPlants = new List<Plant>();
-        List<Plant> otherPlants = new List<Plant>();
+        //placeController.SetPlant(plants[0]);
+        List<Plant> localPlants = new();
+        List<Plant> otherPlants = new();
         foreach (Plant plant in plants)
         {
             if (plant.ItemOrigen.Contains(locationManager.UserRegion))
@@ -56,15 +59,14 @@ public class DataManager : MonoBehaviour
 
         foreach (var item in localPlants)
         {
-            ItemButtonManager itemButton = Instantiate(itemButtonManager, buttonContainer.transform);
-            itemButton.Init(item.ItemName, item.ItemConsumoH2O.ToString(), item.ItemImage);
-            itemButton.GetComponentInChildren<Toggle>().group = buttonContainer.GetComponent<ToggleGroup>();
-            itemButton.button.onClick.AddListener( () => {
-                placeController.SetPlant(item);
+            ItemButtonManager itemButton = Instantiate(itemPrefab, buttonContainer.transform);
+            itemButton.Init(buttonContainer, item.ItemName, item.ItemConsumoH2O.ToString(), item.ItemImage);
+            itemButton.toggle.onValueChanged.AddListener( value => {
+                if (value)
+                    placeController.SetPlant(item);
             });
-            if(item.ItemTemp != locationManager.Temperatura || item.ItemSuelo != locationManager.Suelo){
-                itemButton.transform.GetChild(4).GetComponent<Image>().enabled = true;
-            }
+            if (item.ItemTemp != locationManager.Temperatura || item.ItemSuelo != locationManager.Suelo)
+                itemButton.warning.enabled = true;
         }
         menuManager.OnPlantas -= CreateButtons;
     }
