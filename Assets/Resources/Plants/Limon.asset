@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78c25ce079e39f54ab092be3222d7deb, type: 3}
   m_Name: Limon
   m_EditorClassIdentifier: 
-  arObjectIdentifier: 0
+  arObjectIdentifier: 1
   ItemSol: 1
   ItemTamano: 2
   ItemName: Limon
