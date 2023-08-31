@@ -42,10 +42,6 @@ public class DataManager : MonoBehaviour
 
     private void CreateButtons()
     {
-        // Habría que hacer que automáticamente se seleccione la primera planta de la lista.
-        // (Es más fácil que programar qué pasaría si quieres poner una planta pero no has
-        // ninguna seleccionada)
-        //placeController.SetPlant(plants[0]);
         List<Plant> localPlants = new();
         List<Plant> otherPlants = new();
         foreach (Plant plant in plants)
@@ -77,8 +73,9 @@ public class DataManager : MonoBehaviour
         foreach (Transform child in virtualGarden)
         {
             plant = child.GetComponent<PlantDisplay>();
-            int stage = (plant.currGrowthStage + 1) % 3;
-            plant?.ChangeGrowthStage(stage);
+            if (plant == null)
+                continue;
+            plant.ChangeGrowthStage((plant.currGrowthStage + 1) % 3);
         }
     }
 }
