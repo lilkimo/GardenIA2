@@ -22,6 +22,11 @@ public class DataManager : MonoBehaviour
 
     [SerializeField] 
     private LocationManager locationManager;
+    [SerializeField]
+    private Button changeGrowthButton;
+
+    [SerializeField]
+    private Transform virtualGarden;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +34,7 @@ public class DataManager : MonoBehaviour
         if(menuManager == null)
             Debug.Log("DataManager no puede acceder a MenuManager.");
         menuManager.OnPlantas += CreateButtons;
+        changeGrowthButton.onClick.AddListener(ChangeGrowthPlants);
     }
 
     private void CreateButtons()
@@ -61,5 +67,16 @@ public class DataManager : MonoBehaviour
             }
         }
         menuManager.OnPlantas -= CreateButtons;
+    }
+
+    private void ChangeGrowthPlants()
+    {
+        PlantDisplay plant;
+        foreach (Transform child in virtualGarden)
+        {
+            plant = child.GetComponent<PlantDisplay>();
+            int stage = (plant.currGrowthStage + 1) % 3;
+            plant?.ChangeGrowthStage(stage);
+        }
     }
 }
