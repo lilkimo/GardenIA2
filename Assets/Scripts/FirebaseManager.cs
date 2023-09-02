@@ -131,7 +131,7 @@ public class FirebaseManager: MonoBehaviour
                     message = "Account does not exist";
                     break;
             }
-            warningLoginText.text = message;
+            //warningLoginText.text = message;
         }
         else
         {
@@ -139,8 +139,8 @@ public class FirebaseManager: MonoBehaviour
             //Now get the result
             user = LoginTask.Result.User;
             Debug.LogFormat("User signed in successfully: {0} ({1})", user.DisplayName, user.Email);
-            warningLoginText.text = "";
-            confirmLoginText.text = "Logged In";
+            //warningLoginText.text = "";
+            //confirmLoginText.text = "Logged In";
         }
     }
 
