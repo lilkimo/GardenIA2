@@ -71,18 +71,8 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
-/Assets/Firebase
-/Assets/Editor Default Resources
-/Assets/ExternalDependencyManager
-/Assets/Plugins/iOS/Firebase
-/Assets/Plugins/tvOS/Firebase
-ProjectSettings/GvhProjectSettings.xml
-/Assets/StreamingAssets
-Assets/Firebase.meta
-Assets/StreamingAssets.meta
-Assets/Plugins/iOS.meta
-Assets/Plugins/tvOS.meta
-Assets/Plugins/iOS/Firebase.meta
-Assets/Plugins/tvOS/Firebase.meta
-Assets/ExternalDependencyManager.meta
-Assets/Editor Default Resources.meta
+# Firebase
+Assets/StreamingAssets/google-services-desktop.json
+Assets/Plugins/Android/Firebase/
+Assets/Plugins/iOS/Firebase/
+Assets/Plugins/tvOS/Firebase/

@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/ModelScene.unity
     guid: 4f6fe025e82c08d428a58d5497199bbf
   - enabled: 1
-    path: Assets/Scenes/EmailSenderScene.unity
+    path: Assets/Scenes/Deprecated_EmailSenderScene.unity
     guid: d65dec13dcc99c545afd788d6fb0ce25
   m_configObjects:
     Niantic.Lightship.AR.LightshipSettings: {fileID: 11400000, guid: 8fa1c6dfff126964ba2f83fc12adcaed, type: 2}
