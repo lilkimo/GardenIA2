@@ -24,6 +24,8 @@ public class DataManager : MonoBehaviour
     private LocationManager locationManager;
     [SerializeField]
     private Button changeGrowthButton;
+    [SerializeField]
+    private Button changeModelSeasonButton;
 
     [SerializeField]
     private Transform virtualGarden;
@@ -38,6 +40,7 @@ public class DataManager : MonoBehaviour
             Debug.Log("DataManager no puede acceder a MenuManager.");
         menuManager.OnPlantas += CreateButtons;
         changeGrowthButton.onClick.AddListener(ChangeGrowthPlants);
+        changeModelSeasonButton.onClick.AddListener(ChangeModelSeason);
     }
 
     private void CreateButtons()
@@ -76,6 +79,18 @@ public class DataManager : MonoBehaviour
             if (plant == null)
                 continue;
             plant.ChangeGrowthStage((plant.currGrowthStage + 1) % 3);
+        }
+    }
+
+    private void ChangeModelSeason()
+    {
+        PlantDisplay plant;
+        foreach (Transform child in virtualGarden)
+        {
+            plant = child.GetComponent<PlantDisplay>();
+            if (plant == null)
+                continue;
+            plant.ChangeModelBySeason((plant.currSeasonModel + 1) % 4);
         }
     }
 }

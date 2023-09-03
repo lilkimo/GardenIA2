@@ -9,6 +9,7 @@ public class PlantDisplay: MonoBehaviour
 {
     public Plant plant { get; private set; }
     public int currGrowthStage { get; private set; }
+    public int currSeasonModel { get; private set; }
     private GameObject model;
     
     void Start() {
@@ -16,13 +17,14 @@ public class PlantDisplay: MonoBehaviour
         Serialize();
     }
 
-    public PlantDisplay Initialize(Plant plant, Vector3 position, Quaternion rotation, Vector3 scale, int currGrowthStage = 0)
+    public PlantDisplay Initialize(Plant plant, Vector3 position, Quaternion rotation, Vector3 scale, int currGrowthStage = 0, int currSeasonModel = 0)
     {
         this.plant = plant;
         transform.localPosition = position;
         transform.localRotation = rotation;
         transform.localScale = scale;
         this.currGrowthStage = currGrowthStage;
+        this.currSeasonModel = currSeasonModel;
         model = Instantiate(plant.GrowthStages[currGrowthStage], transform);
         return this;
     }
@@ -39,6 +41,19 @@ public class PlantDisplay: MonoBehaviour
         currGrowthStage = stage;        
         Destroy(model);
         model = Instantiate(plant.GrowthStages[stage], transform);
+    }
+
+    public void ChangeModelBySeason(int season)
+    {
+        Destroy(model);
+        if (season == 0)
+            model = Instantiate(plant.ModelPrimavera, transform);
+        else if (season == 1)
+            model = Instantiate(plant.ModelVerano, transform);
+        else if (season == 2)
+            model = Instantiate(plant.ModelOtoño, transform);
+        else if (season == 3)
+            model = Instantiate(plant.ModelInvierno, transform);
     }
 
     public SerializablePlant Serialize() =>

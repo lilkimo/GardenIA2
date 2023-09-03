@@ -12,6 +12,10 @@ public class Plant : ScriptableObject
     public Sprite ItemImage; // imagen q se muestra en UI
     public string ItemDescription;
     public GameObject[] GrowthStages; // almacena los modelos 3D
+    public GameObject ModelPrimavera;
+    public GameObject ModelVerano;
+    public GameObject ModelOtoño;
+    public GameObject ModelInvierno;
     public int ItemPrecio;
     public int ItemConsumoH2O;
     public bool ItemMantencion;
